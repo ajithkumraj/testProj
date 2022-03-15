@@ -1,32 +1,58 @@
+ 
 <div class="card">
- <div>
- </div>
  <div class="a">
   <strong>
    Empoloyee Registration Form
   </strong>
  </div>
  <br>
- <form [formGroup]="loginForm">
-  Full Name : <input type="text" placeholder="Enter your Name">
-  User name : <input type="text" placeholder="Enter your Name" formControlName="name">
-  <br><br>
-  Email ID : <input type="email" placeholder="Enter your Mail">
-  Phone No : <input type="number" placeholder="Enter your number">
-  <br><br>
-  Password : &nbsp;<input type="password" placeholder="Enter your Password">
-  Confirm Password : <input type="password" placeholder="Enter your password">
-
-  <br><br>
-  Gender :
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+ <div class="form-group">
+		<label for="name">Full Name</label>
+  <input type="text" class="form-control" formControlName="fullname">
+</div>
+<div class="form-group">
+ <label for="name">User Name</label>
+ <input type="text" class="form-control" formControlName="username">
+</div>
+<div class="form-group">
+ <label for="name">Contact Number</label>
+ <input type="number" class="form-control" formControlName="phnno">
+</div>
+<div class="form-group">
+ <label for="name">Gender</label><br><br>
   <input type="radio" name="gender" value="male"> Male
   <input type="radio" name="gender" value="female"> Female
   <input type="radio" name="gender" value="other"> Other
-  <br><br>
-  <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary">Login
-  </button>
-  <a routerLink="/loginpage">
-   <button type="submit">Register</button>
-  </a>
- </form>
+</div>
+<br>
+	<div class="form-group">
+		<label for="name">Email</label>
+		<input type="text" class="form-control" formControlName="email">
+		<div *ngIf="submitted && loginForm.get('email').errors" class="alert alert-danger">
+			<div *ngIf="loginForm.get('email').errors.required">Email is required</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="name">Password</label>
+		<input type="password" class="form-control" formControlName="password">
+		<div *ngIf="submitted && loginForm.get('password').errors" class="alert alert-danger">
+			<div *ngIf="loginForm.get('password').errors.required">Password is required</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="name">Confirm Password</label>
+		<input type="password" class="form-control" formControlName="confirmPassword">
+		<div *ngIf="submitted && loginForm.get('confirmPassword').errors" class="alert alert-danger">
+			<div *ngIf="loginForm.get('confirmPassword').errors.required">Confirm Password is required</div>
+
+			<div *ngIf="loginForm.get('confirmPassword').errors.confirmPasswordValidator">Passsword and
+				Confirm Password didn't match. </div>
+		</div>
+  <br>
+	</div>
+	<button type="submit" class="btn btn-success">Submit</button>
+</form>
 </div>

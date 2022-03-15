@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ConfirmPasswordValidator } from '../confirm.password';
 
 @Component({
   selector: 'app-loginpage',
@@ -9,26 +10,31 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginpageComponent implements OnInit {
 
   loginForm:FormGroup | any;
+  submitted: boolean = false;
    
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
     
     ngOnInit() {
-      this.loginForm = new FormGroup({
+      this.loginForm = this.fb.group(
   
-  name: new FormControl("",Validators.required),
-   
-  })
-  
+        {
+          fullname:["",Validators.required],
+          username:["",Validators.required],
+          phnno:["",Validators.required],
+          email: ["",Validators.required],
+          password: ["",Validators.required],
+          confirmPassword: ["",Validators.required]
+        },
+        {
+          validator: ConfirmPasswordValidator("password", "confirmPassword")
+        }
+      );
     }
     
-    displayStyle = "none";
-    
-    // openPopup() {
-    //   this.displayStyle = "block";
-    // }
-    // closePopup() {
-    //   this.displayStyle = "none";
-    // }
+    onSubmit() {
+      this.submitted = true;
+    }
+   
   
   }
   
