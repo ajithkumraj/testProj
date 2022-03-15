@@ -1,82 +1,9 @@
-<div class="card">
+<div class="navbar"></div>
 
-  <div class="aj background"  >
-
-  </div>
-
-  <h3 style="text-align: left;"> Empoloyee Registration Form</h3>
-  <br>
-  <form [formGroup]="loginForm">
-    Full Name : <input type="text" placeholder="Enter your Name">
-    <!-- <br><br> -->
-
-    User name : <input type="text" placeholder="Enter your Name" formControlName="name">
-    <br><br>
-    Email ID : <input type="email" placeholder="Enter your Mail">
-    <!-- <br><br> -->
-    Phone No : <input type="number" placeholder="Enter your number">
-    <br><br>
-    <!-- Date of Birth : <input type="date"> -->
-    <!-- <br><br> -->
-    Password : &nbsp;<input type="password" placeholder="Enter your Password">
-    <!-- <br><br> -->
-    Confirm Password : <input type="password" placeholder="Enter your password">
-    <!-- <br><br> -->
-    <!-- <label for="gender"> Gender</label> -->
-    <!-- <select name="gender">
-      <option value="none" selected>Gender</option>
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-      <option value="other">other</option>
-    </select> -->
-    <br><br>
-   Gender :
-    <input type="radio" name="gender" value="male"> Male
-    <input type="radio" name="gender" value="female"> Female
-    <input type="radio" name="gender" value="other"> Other
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
   
-    <!-- <button type="submit">Register</button> -->
-    <!-- <br><br> -->
-    <br><br>
-    <button style="margin: 50px; padding: 10px" type="button" class="btn btn-primary" (click)="openPopup()">Login
-    </button>
-  </form>
+  
+  <button type="submit" (click)="register()">Register</button>
+</nav>
 
-  <!-- <button
-  style="margin: 50px; padding: 10px"
-  type="button"
-  class="btn btn-primary"
-  (click)="openPopup()">Show Data
-</button> -->
-  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Register Form</h4>
-        </div>
-
-        <form>
-          User name : <input type="text" placeholder="Enter your Name">
-          <br><br>
-          Email ID : <input type="email" placeholder="Enter your Mail">
-          <br><br>
-          Date of Birth : <input type="date" placeholder="Enter your Birth Date ">
-          <br><br>
-          Password : &nbsp;<input type="password" placeholder="Enter your Password">
-          <br><br>
-          <button type="submit">Register</button>
-        </form>
-
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" (click)="closePopup()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- <app-login></app-login> -->
+<router-outlet></router-outlet>

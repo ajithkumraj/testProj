@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,40 +8,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  constructor(private router:Router){
+
+  }
    title = 'project-task';
-//   constructor() { }
-//   username="";
-//   password='';
-// // username:any;
-//   poster(){
-//     alert(this.username)
-//    }
-loginForm:FormGroup | any;
-// value!:any;
 
 
-
-constructor() {}
-  
-  ngOnInit() {
-    this.loginForm = new FormGroup({
-
-name: new FormControl("",Validators.required),
-
-
-})
-
-  }
-
- 
-  
-  displayStyle = "none";
-  
-  openPopup() {
-    this.displayStyle = "block";
-  }
-  closePopup() {
-    this.displayStyle = "none";
-  }
+register(){
+this.router.navigate(['/loginpage'])
+}
 
 }
