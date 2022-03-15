@@ -11,7 +11,7 @@ export class LoginpageComponent implements OnInit {
 
   loginForm:FormGroup | any;
   submitted: boolean = false;
-   
+   ChildtoParent: any;
   constructor(private fb: FormBuilder) {}
     
     ngOnInit() {
@@ -35,6 +35,12 @@ export class LoginpageComponent implements OnInit {
       this.submitted = true;
     }
    
+
+
+    addValue(childvalue: any){
+      this.ChildtoParent= childvalue;
+      console.log(this.ChildtoParent)
+    }
   
   }
   

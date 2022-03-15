@@ -56,3 +56,11 @@
 	<button type="submit" class="btn btn-success">Submit</button>
 </form>
 </div>
+
+
+<app-child [ajithData]="loginForm" (valuepassparent)="addValue($event)"></app-child>
+
+<ul>
+
+ {{ChildtoParent | json}}
+</ul>
